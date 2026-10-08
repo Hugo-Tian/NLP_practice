@@ -93,7 +93,16 @@ class PositionalEncoding(nn.Module):
 
 # todo 4. 测试PositionaEnbedding(位置编码层）
 def dm02_position():
+    vocab_size = 1000
+    d_model = 512
 
+    my_embed = Embedding(vocab_size,d_model)
+
+    x=torch.tensor([
+        [200,300,203,403],
+        [143,765,343,754]
+
+    ])
 
 
 if __name__ == '__main__':
