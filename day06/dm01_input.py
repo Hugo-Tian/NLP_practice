@@ -87,23 +87,31 @@ class PositionalEncoding(nn.Module):
     def forward(self,x):
         # x : 词向量，形状：[batch_size,seq_len,d_model]->[1,60,512]
         # 把词向量与位置编码相加
-        x = x+self.pe[:,:x.size(-1)]
+        x = x+self.pe[:,:x.size(1)]
         return self.dropout(x)
 
 
-# todo 4. 测试PositionaEnbedding(位置编码层）
+# todo 4. 测试PositionalEmbedding(位置编码层）
 def dm02_position():
+    # 定义词汇表大小和词嵌入维度
     vocab_size = 1000
     d_model = 512
-
+    # 实例化Embedding层
     my_embed = Embedding(vocab_size,d_model)
-
+    # 创建输入张量
     x=torch.tensor([
         [200,300,203,403],
         [143,765,343,754]
 
     ])
-
+    # 计算词向量结果
+    embed_x = my_embed(x)
+    # 创建位置编码层对象
+    my_position = PositionalEncoding(d_model,dropout=0.1)
+    # 计算位置编码结果
+    position_x = my_position(embed_x)
+    print(position_x.shape)
 
 if __name__ == '__main__':
-    dm01_embedding()
+    # dm01_embedding()
+    dm02_position()
