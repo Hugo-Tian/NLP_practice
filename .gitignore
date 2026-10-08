@@ -1,0 +1,22 @@
+# Local editor settings and Python caches
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Downloaded course materials, large corpora and generated outputs
+/2026最新版NLP自然语言处理/
+/day02/data/wh02ad
+/day02/data/SimHei.ttf
+model/
+runs/
+*.bin
+*.pt
+*.pth
+*.zip
+*.rar
+*.exe
