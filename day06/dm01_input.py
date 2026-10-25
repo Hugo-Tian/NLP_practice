@@ -111,6 +111,7 @@ def dm02_position():
     # 计算位置编码结果
     position_x = my_position(embed_x)
     print(position_x.shape)
+    return position_x
 
 if __name__ == '__main__':
     # dm01_embedding()
